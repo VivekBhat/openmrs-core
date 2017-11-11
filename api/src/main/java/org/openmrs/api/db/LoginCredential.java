@@ -130,7 +130,7 @@ public class LoginCredential extends BaseOpenmrsObject implements OpenmrsObject 
 	 * @return the secretQuestion
 	 */
 	public String getSecretQuestion() {
-		return secretQuestion;
+		return Security.decrypt(secretQuestion);
 	}
 	
 	/**
