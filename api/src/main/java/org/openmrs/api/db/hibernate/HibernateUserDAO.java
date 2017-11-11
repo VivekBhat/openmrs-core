@@ -359,6 +359,7 @@ public class HibernateUserDAO implements UserDAO {
 		log.info("Updating secret question and answer for " + u.getUsername());
 		
 		LoginCredential credentials = getLoginCredential(u);
+		String encryptedQuestion = Security.encrypt(question);
 		credentials.setSecretQuestion(question);
 		String hashedAnswer = Security.encodeString(answer.toLowerCase() + credentials.getSalt());
 		credentials.setSecretAnswer(hashedAnswer);
